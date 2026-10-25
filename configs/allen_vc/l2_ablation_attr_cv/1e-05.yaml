@@ -1,0 +1,51 @@
+lr: 0.001
+if_cuda: True
+gamma: 1
+train_batch: 512
+val_batch: 256
+test_batch: 256
+num_workers: 0
+lr_schedule: [20, 50, 100, 300]
+num_gpus: 1
+
+# Allen attribution sweep. Speed and orientation are observed; temporal
+# frequency is withheld, so only the residual can carry it.
+data_filepath: './datasets/allen_vc'
+dataset: 'allen_vc'
+
+session_id: 756029989
+
+behaviours: ['speed', 'orientation']
+behaviour_dims:
+  speed: 1
+  orientation: 1
+
+cv_folds: 10
+
+epochs: 100
+unknown_attribute_latent_dim: 96
+
+input_window: 1
+output_window: 1
+num_layers: 5
+num_neurons: 672
+
+latent_dim: 48
+reconstruction_style: 'Poisson'
+
+smoothing_constant: 0.0
+bin_width: 50
+
+normalize_spikes: False
+normalize_targets: False
+
+weight_decay: 0.00001
+l2_unknown: 0.00001
+
+behaviour_num_layers: 3
+unknown_num_layers: 4
+decoder_num_layers: 2
+
+mlp: True
+unknown_model_type: 'mlp'
+unknown_sigma: 0.02

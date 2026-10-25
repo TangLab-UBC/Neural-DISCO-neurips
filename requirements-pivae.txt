@@ -1,0 +1,2 @@
+# Extra packages for the pi-VAE baseline (on top of environment.yaml).
+tensorflow==2.15.1

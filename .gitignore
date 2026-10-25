@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv*/
+logs/
+checkpoints/
+datasets/
+loaded_datasets/
+NEDS/
+pi-vae/
+figures/

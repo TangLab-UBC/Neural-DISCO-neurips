@@ -1,0 +1,56 @@
+lr: 0.001
+if_cuda: true
+gamma: 1
+train_batch: 512
+val_batch: 256
+test_batch: 256
+num_workers: 0
+lr_schedule: [20, 50, 100, 300]
+num_gpus: 1
+
+data_filepath: ./datasets/nlb_datasets/000128/sub-Jenkins/
+dataset: mc_maze
+behaviours: [hand_pos, hand_vel, eye_pos]
+behaviour_dims:
+  hand_pos: 2
+  hand_vel: 2
+  eye_pos: 2
+behaviour_model_types:
+  hand_pos: mlp
+  hand_vel: mlp
+  eye_pos: mlp
+cv_folds: 10
+epochs: 100
+input_window: 1
+output_window: 1
+unknown_input_key: spikes_input
+spike_target_mode: input_trailing
+behaviour_target_mode: input_trailing
+num_layers: 4
+num_neurons: 137
+
+latent_dim: 96
+unknown_attribute_latent_dim: 128
+behaviour_num_layers: 3
+unknown_num_layers: 4
+decoder_num_layers: 4
+
+reconstruction_style: Poisson
+smoothing_constant: 0.0
+bin_width: 50
+
+normalize_spikes: false
+normalize_targets: false
+target_normalization_mode: global_per_coordinate
+
+delay_factor: 80
+weight_decay: 0.00001
+
+l2_unknown: 0.0001
+l2_warmup_epochs: 0
+stage0_unknown_off_epochs: 0
+unknown_sigma: 0.04
+
+mlp: true
+unknown_model_type: mlp
+num_synth_neurons: 30

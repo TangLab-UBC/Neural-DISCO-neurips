@@ -1,0 +1,66 @@
+lr: 0.001
+if_cuda: True
+gamma: 0.7
+train_batch: 512
+val_batch: 256
+test_batch: 256
+num_workers: 0
+lr_schedule: [20, 50, 100, 300]
+num_gpus: 1
+
+data_filepath: './datasets/'
+dataset: 'custom_rat_in_a_box.pkl'
+
+epochs: 300
+unknown_attribute_latent_dim: 32
+
+cv_folds: 10
+
+input_window: 1
+output_window: 1
+unknown_input_key: 'spikes_input'
+spike_target_mode: 'input_trailing'
+behaviour_target_mode: 'input_trailing'
+num_layers: 3
+num_neurons: 300
+behaviours: ['pos', 'head_direction']
+behaviour_dims:
+  pos: 2
+  head_direction: 2
+behaviour_model_types:
+  pos: 'mlp'
+  head_direction: 'mlp'
+
+latent_dim: 16
+
+reconstruction_style: 'Poisson'
+reconstruction_target_key: 'spikes'
+
+smoothing_constant: 0.0
+bin_width: 50
+
+normalize_spikes: False
+normalize_targets: False
+
+delay_factor: 80
+weight_decay: 0.00001
+
+l2_unknown: 0.00001
+unknown_sigma: 0.02
+l2_warmup_epochs: 10
+stage0_unknown_off_epochs: 10
+
+mlp: True
+unknown_model_type: 'mlp'
+
+behaviour_num_layers: 3
+unknown_num_layers: 3
+decoder_num_layers: 3
+
+use_counterfactual: False
+manual_trajectory: True
+
+noise: 0.1
+num_cells: 100
+minutes: 20
+include_noise_cell: False

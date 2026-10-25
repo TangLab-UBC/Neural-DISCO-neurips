@@ -1,0 +1,25 @@
+name: neural-disco
+channels:
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=3.10
+  - numpy<2
+  - pandas=1.5.3
+  - scipy=1.12
+  - scikit-learn=1.7
+  - matplotlib
+  - h5py
+  - tqdm
+  - pyyaml
+  - munch
+  - setuptools=68.2.2
+  - pytorch=2.10
+  - captum
+  - pytorch-lightning=1.9.5
+  - tensorboard
+  - pip
+  - pip:
+      - setuptools==68.2.2  # newer setuptools drops pkg_resources, which pytorch-lightning 1.9 needs
+      - cebra==0.1.0
+      - ratinabox==1.15.3
